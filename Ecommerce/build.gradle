@@ -1,0 +1,35 @@
+apply plugin: 'java'
+apply plugin: 'war' 
+apply plugin: 'eclipse-wtp' 
+version = '1.0' //property
+ 
+// Uses JDK 8
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+ 
+// 1. Get dependencies from Maven local repository
+// 2. Get dependencies from Maven central repository
+repositories {
+mavenCentral()
+}
+ 
+//Project dependencies
+dependencies {
+ compile 'org.apache.tomcat:tomcat-servlet-api:8.0.24'
+ compile 'jstl:jstl:1.2'
+ compile 'org.springframework:spring-beans:4.1.7.RELEASE'
+ compile 'org.springframework:spring-web:4.1.7.RELEASE'
+ compile 'org.springframework:spring-webmvc:4.1.7.RELEASE'
+ compile 'org.springframework:spring-tx:4.1.7.RELEASE'
+ compile 'com.alibaba:druid:1.0.15'
+ compile 'org.aspectj:aspectjweaver:1.8.6'
+ compile 'mysql:mysql-connector-java:5.1.36'
+ compile 'org.mybatis:mybatis-spring:1.2.3'
+ compile 'org.mybatis:mybatis:3.3.0'
+ compile 'org.springframework:spring-jdbc:4.1.7.RELEASE'
+ compile 'junit:junit:4.12'
+ compile 'org.springframework:spring-test:4.0.5.RELEASE'
+
+//include in compile only, exclude in the war
+providedCompile 'javax.servlet:servlet-api:2.5'
+}
